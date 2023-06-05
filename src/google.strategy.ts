@@ -5,10 +5,10 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy) {
   constructor() {
+    console.log(process.env.CID);
     super({
-      clientID:
-        '24882019403-gc41lb28pno362b92kiovvcrlu440l21.apps.googleusercontent.com',
-      clientSecret: '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',
+      clientID: process.env.CID,
+      clientSecret: process.env.CS,
       callbackURL: 'http://localhost:3000/auth/google/callback',
       scope: ['email', 'profile'],
     });
